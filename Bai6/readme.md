@@ -18,5 +18,5 @@ cd Debug
 
 # Lưu ý
 ##    Phải có cmake thì mới build được project này
-##    Nếu không cần chỉnh sửa thì có thể chạy main.exe ngay trong directory Debug
+##    Nếu không cần chỉnh sửa thì có thể chạy main.exe ngay trong directory build/Debug
 # Các chỉ dẫn trên đang trong trường hợp đường dẫn đang ở vị trí chứa file main.cpp
