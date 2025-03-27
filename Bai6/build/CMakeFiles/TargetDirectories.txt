@@ -1,0 +1,4 @@
+D:/artificial intelligence/Bai6/build/CMakeFiles/main.dir
+D:/artificial intelligence/Bai6/build/CMakeFiles/ALL_BUILD.dir
+D:/artificial intelligence/Bai6/build/CMakeFiles/ZERO_CHECK.dir
+D:/artificial intelligence/Bai6/build/Q_LEARNING/CMakeFiles/Q_LEARNING.dir

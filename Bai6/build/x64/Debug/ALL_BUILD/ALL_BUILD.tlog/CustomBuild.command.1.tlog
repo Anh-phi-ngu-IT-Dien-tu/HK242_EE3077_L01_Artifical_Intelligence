@@ -1,0 +1,10 @@
+^D:\ARTIFICIAL INTELLIGENCE\BAI6\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/artificial intelligence/Bai6" "-BD:/artificial intelligence/Bai6/build" --check-stamp-file "D:/artificial intelligence/Bai6/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

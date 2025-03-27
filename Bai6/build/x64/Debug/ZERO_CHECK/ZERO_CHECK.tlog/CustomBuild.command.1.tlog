@@ -1,0 +1,10 @@
+^D:\ARTIFICIAL INTELLIGENCE\BAI6\BUILD\CMAKEFILES\C6EC77F461F87CE5565061C2C2EAD6FB\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/artificial intelligence/Bai6" "-BD:/artificial intelligence/Bai6/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/artificial intelligence/Bai6/build/main.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
