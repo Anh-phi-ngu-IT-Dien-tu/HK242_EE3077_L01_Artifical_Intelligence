@@ -17,7 +17,7 @@ class Q_Learning
     unsigned int size;
     std::vector<int> possible_action;
     int current_state,episode;
-    double gamma;
+    double gamma,alpha;
     std::vector<double> temp;
     int chose_action,target_state;
 
@@ -25,7 +25,7 @@ class Q_Learning
     void Delete_the_temp();
     void Delete_possible_action();
     public:
-    Q_Learning(unsigned int size_of_Q_and_R,unsigned int num_of_episode,double set_gamma);
+    Q_Learning(unsigned int size_of_Q_and_R,unsigned int num_of_episode,double set_gamma,double set_learning_rate);
     ~Q_Learning();
 
     //getter
@@ -36,7 +36,7 @@ class Q_Learning
     void setZeroForR();
     void setReward(Eigen::MatrixXd Reward);
     void QLearningAgorithm();
-    
+    void seeAllPosibleAction();
 };
  
 

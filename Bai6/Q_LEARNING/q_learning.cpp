@@ -1,6 +1,6 @@
 #include "q_learning.h"
 
-Q_Learning::Q_Learning(unsigned int size_of_Q_and_R,unsigned int num_of_episode,double set_gamma)
+Q_Learning::Q_Learning(unsigned int size_of_Q_and_R,unsigned int num_of_episode,double set_gamma,double set_learning_rate)
 {
     Q.resize(size_of_Q_and_R,size_of_Q_and_R);
     R.resize(size_of_Q_and_R,size_of_Q_and_R);
@@ -13,6 +13,7 @@ Q_Learning::Q_Learning(unsigned int size_of_Q_and_R,unsigned int num_of_episode,
     else
         episode=5;    
     gamma=set_gamma;
+    alpha=set_learning_rate;
 
 }
 
@@ -65,7 +66,7 @@ void Q_Learning::Fill_the_temp(Eigen::MatrixXd M,unsigned int row)
 
 void Q_Learning::Delete_the_temp()
 {
-    for(int i =0;i<temp.size();i++)
+    for(int i =temp.size();i>0;i--)
     {
         temp.pop_back();
     }
@@ -73,10 +74,19 @@ void Q_Learning::Delete_the_temp()
 
 void Q_Learning::Delete_possible_action()
 {
-    for(int i =0;i<possible_action.size();i++)
+    for(int i=possible_action.size();i>0;i--)
     {
         possible_action.pop_back();
     }
+}
+
+void Q_Learning::seeAllPosibleAction()
+{
+    for(int i=0;i<possible_action.size();i++)
+    {
+        std::cout<<"possible action "<<i<<" = "<<possible_action[i];
+    }
+    std::cout<<"\n";
 }
 
 //max_element´returns an iterator 
@@ -105,8 +115,18 @@ void Q_Learning::QLearningAgorithm()
             for(unsigned int j=0;j<size;j++)
             {
                 if(R(current_state,j)>=0)
-                    possible_action.push_back(j);            
+                {  
+                    #if Debuggging ==1
+                    std::cout<<"R("<<current_state<<","<<j<<")="<<R(current_state,j)<<" ";
+                    #endif
+                    possible_action.push_back(j);
+                }            
             }
+
+            #if Debuggging ==1
+            std::cout<<"\n";
+            seeAllPosibleAction();
+            #endif
 
             //Using this possible action, consider going to the next state.
             chose_action=rand()%possible_action.size();
@@ -125,7 +145,7 @@ void Q_Learning::QLearningAgorithm()
             #endif
 
             //compute 
-            Q(current_state,possible_action[chose_action])=R(current_state,possible_action[chose_action]) +gamma*max;
+            Q(current_state,possible_action[chose_action])=(1-alpha)*Q(current_state,possible_action[chose_action])+alpha*(R(current_state,possible_action[chose_action])+gamma*max);
             #if Debuggging==1
             std::cout<<"Q("<<current_state<<","<<possible_action[chose_action]<<")="<<Q(current_state,possible_action[chose_action])<<std::endl;
             #endif
