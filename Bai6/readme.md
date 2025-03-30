@@ -4,19 +4,43 @@ Bài 6
 
 Lập trình thuật toán Q_Learning
 
-Cách chạy
+Cách build chương trình 
 -----
-Tùy chỉnh trong file main.cpp và sau đó chạy lệnh sau 
+Đảm bảo directory đang ở vị trí
+```
+\Bai6
+```
+
+Sau đó chạy lệnh sau
 ```
 cd build
 # Lệnh này chỉ cần chạy 1 lần
 cmake ..
 cmake --build .
-cd Debug
-./main
 ```
 
-# Lưu ý
-##    Phải có cmake thì mới build được project này
-##    Nếu không cần chỉnh sửa thì có thể chạy main.exe ngay trong directory build/Debug
-# Các chỉ dẫn trên đang trong trường hợp đường dẫn đang ở vị trí chứa file main.cpp
+==============
+
+Cách chạy
+-----
+Trong directory chính có subdirectory debug
+-----
+Trong subdirectory debug có các file sau
+```
+data_input.csv
+main.exe
+main.pdb
+Q_LEARNING.lib
+Q_LEARNING.pdb
+Q_Matrix_After_Training.csv
+```
+
+Hiệu chỉnh file data_input.csv để chỉnh ma trận R
+-----
+Chạy file main.exe
+-----
+Kết quả tự hiện lên terminal
+-----
+Ma trận Q sẽ được lưu vào file Q_Matrix_After_Training.csv
+
+
