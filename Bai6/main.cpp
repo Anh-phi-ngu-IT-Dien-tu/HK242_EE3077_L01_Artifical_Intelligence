@@ -40,6 +40,7 @@ int main()
     std::ofstream outfile("Q_Matrix_After_Training.csv");
     Eigen::IOFormat HeavyFmt(Eigen::StreamPrecision, 0, ",", "\n");
     outfile<<path_planning.getQ().format(HeavyFmt);
+    outfile.close();
     system("pause");
     return 0;    
 }
