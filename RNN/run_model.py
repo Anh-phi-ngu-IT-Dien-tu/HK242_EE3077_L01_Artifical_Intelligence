@@ -11,7 +11,7 @@ idx2char = {i: c for c, i in char2idx.items()}
 vocab_size = len(chars)
 max_len = max(len(name) for name in names)
 
-model = load_model("RNN.h5")
+model = load_model("LSTM.h5")
 model.summary()
 def predict_name(char):
     idx = tf.constant([char2idx[char]], dtype=tf.int32)
